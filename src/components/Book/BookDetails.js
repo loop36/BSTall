@@ -17,7 +17,11 @@ const BookDetails = () => {
           </div>
         </div>
         <div>
+<<<<<<< HEAD
           
+=======
+          <img src></img>
+>>>>>>> 2fc1cc043cf73044116d79a24756488d29672fea
         </div>
       </div>
     );

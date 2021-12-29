@@ -6,7 +6,7 @@ const ModalData  = (props) => {
         <div className="absolute flex justify-center self-center z-30 h-screen w-screen ">
         {props.children}  
          </div>
-         <div className="fixed z-0 w-screen h-screen bg-primaryColor opacity-80 ">         
+         <div className="fixed z-0 w-screen h-screen bg-gray-700 opacity-50 ">         
          </div>          
         </div>
     )

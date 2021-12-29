@@ -1,7 +1,13 @@
+import React from "react";
+import Header from "./components/Layout/Header";
+import Modal from "./components/Layout/Modal";
 
 function App() {
 
-  return ( <h1>Book App</h1>
+  return ( 
+<React.Fragment>  <Header />
+
+</React.Fragment>
 
   );
 }
