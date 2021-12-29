@@ -2,7 +2,7 @@ import Card from '../UI/Card';
 import MealItem from './MealItem/MealItem';
 import classes from './AvailableMeals.module.css';
 import { useEffect, useState } from 'react';
-
+let loadedMeals = []
 const AvailableMeals = () => {
  const [meals, setMeals] = useState([])
  const [loading, setLoading] = useState(true)
@@ -10,24 +10,24 @@ const AvailableMeals = () => {
 
   useEffect (()=> {
     const fetchmeals =async ()=> {
-    const response = await fetch('https://reactlearn-75355-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json').then()
+    const response = await fetch('http://localhost:3001/getBooks').then()
     
     if(!response.ok)
     {
       setError(true)
     }
-    const responseData = await response.json()
+    const responseD = await response.json()
 
 
-    const loadedMeals = []
+    responseD.map((responseData)=> 
 
     loadedMeals.push ({
-        id: responseData['id'],
-        name: responseData['name'],
-        description: responseData['description'],
+        id: responseData['productId'],
+        name: responseData['productName'],
+        description: responseData['author'],
         price: responseData['price'],
       })
-    
+    )
       setMeals(loadedMeals)
       setLoading(false)
     }
