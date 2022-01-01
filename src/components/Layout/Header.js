@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const Header=()=> {
 
 return (
-    <nav className="py-5 bg-white w-screen shadow-md">
+    <nav className="py-5 bg-white w-screen shadow-md fixed">
   <div className=" flex justify-end items-center mx-auto xl:max-w-7xl lg:max-w-5xl md:max-w-3xl md:px-2 px-4">
     <section>
       <ul className="md:space-x-8 space-x-6 text-gray-900 font-semibold hidden md:flex text-right">

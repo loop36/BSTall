@@ -1,11 +1,13 @@
+import React from "react";
 import Header from "./components/Layout/Header";
-import { Router, Routes } from "react-router";
+import Modal from "./components/Layout/Modal";
 
 function App() {
 
   return ( 
+<React.Fragment>  <Header />
 
-  <Header />
+</React.Fragment>
 
   );
 }
