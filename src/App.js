@@ -1,9 +1,8 @@
-import Header from './components/Layout/Header';
 
 function App() {
 
-  return (
-      <Header/>
+  return ( <h1>Book App</h1>
+
   );
 }
 
