@@ -23,6 +23,12 @@ const config = {
 
 const db = pgp(config);
 
+
+app.get("/", function (req, res) {
+res.send("wordked")
+  });
+
+
 app.get("/getBooks", function (req, res) {
   db.query('SELECT * FROM public."productDetails"')
     .then(function (data) {
