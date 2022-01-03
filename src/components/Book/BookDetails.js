@@ -16,12 +16,17 @@ const BookDetails = () => {
           </button>
           </div>
         </div>
+<<<<<<< HEAD
         <div>
 <<<<<<< HEAD
           
 =======
           <img src></img>
 >>>>>>> 2fc1cc043cf73044116d79a24756488d29672fea
+=======
+        <div className="flex ">
+          
+>>>>>>> f38e4e1deb7bf774a6641b1f377aaf92276fe5e1
         </div>
       </div>
     );
