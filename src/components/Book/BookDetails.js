@@ -16,8 +16,8 @@ const BookDetails = () => {
           </button>
           </div>
         </div>
-        <div>
-          <img src></img>
+        <div className="flex ">
+          
         </div>
       </div>
     );
