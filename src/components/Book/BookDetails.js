@@ -17,7 +17,7 @@ const BookDetails = () => {
           </div>
         </div>
         <div className="flex ">
-          
+
         </div>
       </div>
     );
