@@ -3,9 +3,9 @@ import Card from "../Layout/Card";
 const KnowYourAuthor = () => {
   return (
     <div className="flex justify-center  self-center w-screen">
-      <Card class="self-center">
+     
         <div className="flex flex-col w-10/12 justify-center self-center border-solid border-2 py-12 rounded-2xl">
-          <h3 className="font-bold mb-7"> Paulo Coelho</h3>
+          <h3 className="font-bold mb-7 self-center"> Paulo Coelho</h3>
           <div className="flex mt-5">
             <div className=" w-32 h-40 border-2 border-solid border-black m-auto"></div>
             <p className="w-8/12 self-center m-auto text-left">
@@ -23,7 +23,7 @@ const KnowYourAuthor = () => {
             </p>
           </div>
         </div>
-      </Card>
+    
     </div>
   );
 };

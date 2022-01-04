@@ -7,7 +7,8 @@ import Modal from "./components/Layout/Modal";
 function App() {
 
   return ( 
-<React.Fragment>  <Header />
+<React.Fragment> 
+   <Header />
 <BookDetails/>
 <KnowYourAuthor/>
 </React.Fragment>
