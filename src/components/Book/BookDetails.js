@@ -1,6 +1,6 @@
 const BookDetails = () => {
     return (
-      <div className="lg:flex md:flex w-screen h-screen border-box hidden">
+      <div className="lg:flex md:flex w-screen h-full mb-32 border-box hidden">
         <div className="flex flex-col w-1/2">
           <div className="flex flex-col justify-center  mt-24 gap-2">
           <h1 className=" font-bold text-6xl self-center">Alchemist</h1>
