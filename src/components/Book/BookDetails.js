@@ -1,5 +1,9 @@
+import { Element } from "react-scroll";
+
+
 const BookDetails = () => {
-    return (
+      return (
+      <Element name="home">
       <div className="lg:flex md:flex w-screen h-full mb-32 border-box hidden">
         <div className="flex flex-col w-1/2">
           <div className="flex flex-col justify-center  mt-24 gap-2">
@@ -20,6 +24,7 @@ const BookDetails = () => {
 
         </div>
       </div>
+      </Element>
     );
   };
   

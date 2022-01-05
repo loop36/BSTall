@@ -1,8 +1,10 @@
 import Card from "../Layout/Card";
+import { Element } from "react-scroll";
 
 const KnowYourAuthor = () => {
   return (
-    <div className="flex justify-center  self-center w-screen">
+    <Element name="kya">
+    <div  className="flex justify-center  self-center w-screen">
      
         <div className="flex flex-col w-10/12 justify-center self-center border-solid border-2 py-12 rounded-2xl">
           <h3 className="font-bold mb-7 self-center"> Paulo Coelho</h3>
@@ -25,6 +27,7 @@ const KnowYourAuthor = () => {
         </div>
     
     </div>
+</Element>
   );
 };
 

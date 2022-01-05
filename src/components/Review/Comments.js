@@ -1,7 +1,9 @@
+import { Element } from "react-scroll"
 import Card from "../Layout/Card"
 
 const Comments = () => {
     return (
+        <Element name="comments">
         <div className="flex w-screen flex-col self-center justify-center my-auto mt-32 mb-32">
             <h1 className="font-bold ml-32 mb-12"> Recognitions</h1>
             <div className="flex w-screen self-center justify-center">
@@ -27,6 +29,7 @@ const Comments = () => {
             </Card>
             </div>
         </div>
+        </Element>
 
     )
 }
