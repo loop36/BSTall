@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom'
-
+import Scroll from 'react-scroll'
+import AuthorWorks from '../Author/AuthorWorks'
+const ScrollLink = Scroll.Link
 
 const Header=()=> {
 
@@ -9,18 +11,36 @@ return (
     <section>
       <ul className="md:space-x-8 space-x-6 text-gray-900 font-semibold hidden md:flex text-right">
         <li className="relative group">
-          <NavLink to="#" className="group focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none rounded-lg"> Home </NavLink>
+          <ScrollLink 
+          to="home"
+        spy={true} 
+        smooth={true} 
+        offset={-200}
+        duration={500} activeClass="active"  className="group focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none rounded-lg"> Home </ScrollLink>
           <div className="w-full h-0.5 bg-transparent group-hover:bg-purple-500 transition-al absolute bottom-0" />
         </li>
         <li className="relative group">
-          <NavLink to="#" className="focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none rounded-lg">Services</NavLink>
+          <ScrollLink 
+          to="kya"
+        spy={true} 
+        smooth={true} 
+        offset={-200}
+        duration={500} className="focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none rounded-lg">Author</ScrollLink>
           <div className="w-full h-0.5 bg-transparent group-hover:bg-purple-500 transition-al absolute bottom-0" />
         </li>
         <li className="relative group">
-          <NavLink to="#" className="focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none rounded-lg">About</NavLink>
+          <ScrollLink   to="work"
+        spy={true} 
+        smooth={true} 
+        offset={-200}
+        duration={500}  className="focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none rounded-lg">About</ScrollLink>
           <div className="w-full h-0.5 bg-transparent group-hover:bg-purple-500 transition-al absolute bottom-0" />
         </li>
-        <li><NavLink to="#" className="bg-purple-500 px-4 py-1 rounded-xl text-white hover:bg-purple-400 active:bg-purple-600 focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none">Contact</NavLink></li>
+        <li><ScrollLink   to="comments"
+        spy={true} 
+        smooth={true} 
+        offset={-200}
+        duration={500}  className="bg-purple-500 px-4 py-1 rounded-xl text-white hover:bg-purple-400 active:bg-purple-600 focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none">Contact</ScrollLink></li>
       </ul>
     </section>
   </div>
