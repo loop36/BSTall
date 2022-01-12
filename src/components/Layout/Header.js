@@ -24,7 +24,7 @@ return (
           to="kya"
         spy={true} 
         smooth={true} 
-        offset={-200}
+        offset={-100}
         duration={500} className="focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none rounded-lg">Author</ScrollLink>
           <div className="w-full h-0.5 bg-transparent group-hover:bg-purple-500 transition-al absolute bottom-0" />
         </li>
@@ -32,14 +32,14 @@ return (
           <ScrollLink   to="work"
         spy={true} 
         smooth={true} 
-        offset={-200}
+        offset={-100}
         duration={500}  className="focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none rounded-lg">About</ScrollLink>
           <div className="w-full h-0.5 bg-transparent group-hover:bg-purple-500 transition-al absolute bottom-0" />
         </li>
         <li><ScrollLink   to="comments"
         spy={true} 
         smooth={true} 
-        offset={-200}
+        offset={-100}
         duration={500}  className="bg-purple-500 px-4 py-1 rounded-xl text-white hover:bg-purple-400 active:bg-purple-600 focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none">Contact</ScrollLink></li>
       </ul>
     </section>

@@ -1,9 +1,17 @@
 import { Element } from "react-scroll";
+import Card from "../Layout/Card";
+import Modal from "../Layout/Modal";
+import AddressForm from "../Payment/AddressForm";
 
 
 const BookDetails = () => {
       return (
       <Element name="home">
+        {/* <Modal>
+          <Card class="w-96  bg-yellow-500 m-auto "> 
+          <AddressForm/>
+          </Card>
+          </Modal> */}
       <div className="lg:flex md:flex w-screen h-full mb-32 border-box hidden">
         <div className="flex flex-col w-1/2">
           <div className="flex flex-col justify-center  mt-24 gap-2">
@@ -20,8 +28,9 @@ const BookDetails = () => {
           </button>
           </div>
         </div>
-        <div className="flex ">
-
+        <div className="flex  mt-24 -m-5 gap-4 justify-center ">
+        <img src="https://bookstallbucket.s3.amazonaws.com/Image+1.png" className="h-3/4" alt="Alchemist Back"/>
+        <img src="https://bookstallbucket.s3.amazonaws.com/alchemist.png"  className="h-3/4" alt="Alchemist"/>
         </div>
       </div>
       </Element>
