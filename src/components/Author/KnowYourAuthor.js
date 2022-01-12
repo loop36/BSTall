@@ -9,7 +9,7 @@ const KnowYourAuthor = () => {
         <div className="flex flex-col w-10/12 justify-center self-center border-solid border-2 py-12 rounded-2xl">
           <h3 className="font-bold mb-7 self-center"> Paulo Coelho</h3>
           <div className="flex mt-5">
-            <div className=" w-32 h-40 border-2 border-solid border-black m-auto"></div>
+            <img src="https://bookstallbucket.s3.amazonaws.com/Image+5.png" alt= "Author  " className="m-auto"/>
             <p className="w-8/12 self-center m-auto text-left">
               Paulo Coelho was born in Rio de Janeiro, Brazil, and attended a
               Jesuit school. At 17, Coelho's parents committed him to a mental
