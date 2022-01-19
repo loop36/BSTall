@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import validators from "../Payment/validators";
 
@@ -13,19 +12,18 @@ const createValidator = function (validatorKeys) {
 };
 
 const Input = (props) => {
- 
   const [isValid, setIsValid] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const validatorForThisItem = createValidator(props.validate);
-  useEffect(()=>{
-    console.log(validatorForThisItem(value))
-  },[])
+  useEffect(() => {
+    console.log(validatorForThisItem(value));
+  }, []);
 
-const inputIsInvalid =!isValid && isTouched;
+  const inputIsInvalid = !isValid && isTouched;
   return (
     <div className="flex  gap-3 ">
-      <div className="w-1/2 self-end justify-self-end top-0 align-top justify-end text-right">
+      <div className=" w-32 self-end justify-self-end top-0 align-top justify-end text-right mb-1">
         <label for={props.name} className="text-right">
           {props.title}
         </label>
@@ -36,19 +34,16 @@ const inputIsInvalid =!isValid && isTouched;
           className="self-start justify-self-start border-gray-400 border-solid border rounded shadow"
           name={props.name}
           type={props.type}
-         onBlur={() => {
-          setIsTouched(true)
-          setIsValid(validatorForThisItem(value));
-        }}
-           onChange={(e,isValid)=>{
-             setValue(e.target.value);
-             props.handleChange(e)
-            }}
+          onBlur={() => {
+            setIsTouched(true);
+          }}
+          onChange={(e) => {
+            let valid = validatorForThisItem(e.target.value);
+            setIsValid(valid);
+            props.handleChange(e, valid);
+          }}
         />
-        {
-        inputIsInvalid?
-      <p> Error</p>: ''
-}
+        {inputIsInvalid ? <p> Error</p> : ""}
       </div>
     </div>
   );

@@ -11,7 +11,9 @@ const BookDetails = () => {
       <Element name="home">
         {toggleAddress?
           <Modal >
-          <Card class="w-96  bg-gray-50 m-auto "> 
+          <Card class=" bg-gray-50 m-auto w-auto flex "> 
+          <div className="w-96"> 
+            <h1>Book your Journey</h1></div>
           <AddressForm close={()=>{setToggleAddress(false)} }/>
           </Card>
           </Modal> :''}
