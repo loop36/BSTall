@@ -1,15 +1,5 @@
 import { useState, useEffect } from "react";
-import validators from "../Payment/validators";
-
-const createValidator = function (validatorKeys) {
-  return function (data) {
-    return validatorKeys.every((key) => {
-      const currentValidator =
-        validators.hasOwnProperty(key) && validators[key];
-      return currentValidator && currentValidator(data);
-    });
-  };
-};
+import createValidator from '../utils/CreateValidator'
 
 const Input = (props) => {
   const [isValid, setIsValid] = useState(false);
@@ -17,13 +7,15 @@ const Input = (props) => {
   const [value, setValue] = useState("");
   const validatorForThisItem = createValidator(props.validate);
   useEffect(() => {
-    console.log(validatorForThisItem(value));
+    console.log(validatorForThisItem);
   }, []);
 
   const inputIsInvalid = !isValid && isTouched;
+  let classElement =''
+  inputIsInvalid ? classElement = "border-red-400 border-2" : classElement = "border-gray-400 border"
   return (
     <div className="flex  gap-3 ">
-      <div className=" w-32 self-end justify-self-end top-0 align-top justify-end text-right mb-1">
+      <div className=" w-32 self-end justify-self-end top-0 align-top justify-end text-right mb-1" >
         <label for={props.name} className="text-right">
           {props.title}
         </label>
@@ -31,7 +23,7 @@ const Input = (props) => {
       <div className="flex flex-col ">
         <input
           id={props.id}
-          className="self-start justify-self-start border-gray-400 border-solid border rounded shadow"
+          className={"self-start justify-self-start border-solid  rounded shadow mt-1 "+classElement }
           name={props.name}
           type={props.type}
           onBlur={() => {
@@ -43,7 +35,7 @@ const Input = (props) => {
             props.handleChange(e, valid);
           }}
         />
-        {inputIsInvalid ? <p> Error</p> : ""}
+        
       </div>
     </div>
   );

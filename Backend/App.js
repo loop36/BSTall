@@ -5,7 +5,7 @@ var app = express();
 var cors = require('cors')
 app.use(cors());
 var pgp = require("pg-promise")(/* options */);
-
+app.use(express.json({ extended: false }));
 let ssl = { rejectUnauthorized: false };
 const ConString =
   "postgres://mogwwtlidlxvsc:096686827b0940704204ce05f13ae15beddac0daff144a7506d792892e98e872@ec2-54-163-97-228.compute-1.amazonaws.com:5432/da5u0blil0urgl?ssl=true";
@@ -22,9 +22,9 @@ const config = {
 
 const db = pgp(config);
 
-
+app.use("/payment", require("./payment"));
 app.get("/", function (req, res) {
-res.send("wordked")
+res.send("worked")
   });
 
 
