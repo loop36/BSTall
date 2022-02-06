@@ -107,18 +107,15 @@ const AddressForm = (props) => {
       // let data
       displayRazorpay();
     }
+    else {
+      alert("Address details are invalid or incomplete ")
+    }
   };
   return (
     <div
       id="ShippingAddress"
-      className="flex flex-col gap-1 w-96 items-start justify-center"
+      className="flex flex-col gap-1 md:w-96 lg:w-96 xl:w-96 sm:w-3/5 items-start justify-center"
     >
-      <Modal>
-        <Card>
-          <div>Hi Payment</div>
-        </Card>
-      </Modal>
-
       <form action="submit" method="POST" onSubmit={submitForm}>
         <h1 className="font-bold self-center mb-12"> Address Details</h1>
 
@@ -143,7 +140,7 @@ const AddressForm = (props) => {
 
         <div className="flex flex-col gap-0 justify-center mt-5 z-50 ">
           <button
-            className=" w-7/12 p-2 self-end  bg-green-900 text-sm hover:bg-gray-500 disabled text-center rounded-lg  text-white capitalize"
+            className=" w-7/12 p-2 self-end  bg-green-900 text-sm hover:bg-green-500 disabled text-center rounded-lg  text-white capitalize"
             type="submit"
           >
             place order

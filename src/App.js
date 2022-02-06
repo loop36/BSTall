@@ -13,8 +13,8 @@ function App() {
    <Header />
 <BookDetails/>
 <KnowYourAuthor/>
-<AuthorWorks/>
-<Comments/>
+{/* <AuthorWorks/> */}
+{/* <Comments/> */}
 <Footer/>
 </React.Fragment>
 

@@ -6,10 +6,10 @@ const ScrollLink = Scroll.Link
 const Header=()=> {
 
 return (
-    <nav className="py-5 bg-white w-screen shadow-md fixed">
-  <div className=" flex justify-end items-center mx-auto xl:max-w-7xl lg:max-w-5xl md:max-w-3xl md:px-2 px-4">
+    <nav className="py-5 bg-white w-screen shadow-md ">
+  <div className=" flex sm:justify-center md:justify-end lg:justify-end xl:justify-end titems-center mx-auto xl:max-w-7xl lg:max-w-5xl md:max-w-3xl md:px-2 px-4">
     <section>
-      <ul className="md:space-x-8 space-x-6 text-gray-900 font-semibold hidden md:flex text-right">
+      <ul className="md:space-x-8 space-x-6 text-gray-900 font-semibold  md:flex lg:text-right md:text-right flex">
         <li className="relative group">
           <ScrollLink 
           to="home"
@@ -25,7 +25,7 @@ return (
         spy={true} 
         smooth={true} 
         offset={-100}
-        duration={500} className="focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none rounded-lg">Author</ScrollLink>
+        duration={500} className="focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none rounded-lg  e">Author</ScrollLink>
           <div className="w-full h-0.5 bg-transparent group-hover:bg-purple-500 transition-al absolute bottom-0" />
         </li>
         <li className="relative group">
