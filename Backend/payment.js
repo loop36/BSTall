@@ -14,7 +14,7 @@ router.post("/orders", async (req, res) => {
         });
 
         const options = {
-            amount: 50000, // amount in smallest currency unit
+            amount: 500, // amount in smallest currency unit
             currency: "INR",
             receipt: "receipt_order_74394",
         };
