@@ -117,7 +117,11 @@ const AddressForm = (props) => {
       className="flex flex-col gap-1 md:w-96 lg:w-96 xl:w-96 sm:w-3/5 items-start justify-center"
     >
       <form action="submit" method="POST" onSubmit={submitForm}>
-        <h1 className="font-bold self-center mb-12"> Address Details</h1>
+        <div className="flex justify-between mb-6 w-96">
+        
+        <h1 className="font-bold self-center items-center b- text-base m-auto "> Address Details </h1>
+        <h3 onClick={props.close} className="items-end mr-3 text-red-600 hover:underline transition-all cursor-pointer font-bold">close</h3>
+        </div>
 
         {AddressFields.map((addr) => {
           const handleChange = (e, valid) => {
@@ -140,7 +144,7 @@ const AddressForm = (props) => {
 
         <div className="flex flex-col gap-0 justify-center mt-5 z-50 ">
           <button
-            className=" w-7/12 p-2 self-end  bg-green-900 text-sm hover:bg-green-500 disabled text-center rounded-lg  text-white capitalize"
+            className=" w-5/12 p-2 self-center ml-20   bg-green-900 text-sm hover:bg-green-500 disabled text-center rounded-lg  text-white capitalize"
             type="submit"
           >
             place order
