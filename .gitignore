@@ -3,4 +3,5 @@ node_modules
 .eslintcache
 .eslintcache~518fdec (Added Basic Structure for BookDetails)
 .eslintcache
+Backend/.env
 .env
