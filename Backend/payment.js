@@ -1,4 +1,5 @@
 require("dotenv").config();
+var dynamo = require("./dynamoCRUD")
 const express = require("express");
 const Razorpay = require("razorpay");
 var path = require("path");
@@ -12,9 +13,9 @@ router.post("/orders", async (req, res) => {
             key_id: process.env.RAZORPAY_KEY_ID,
             key_secret: process.env.RAZORPAY_SECRET,
         });
-
+        
         const options = {
-            amount: 500, // amount in smallest currency unit
+            amount: 20000, // amount in smallest currency unit
             currency: "INR",
             receipt: "receipt_order_74394",
         };
@@ -38,6 +39,7 @@ router.post("/success", async (req, res) => {
             razorpayPaymentId,
             razorpayOrderId,
             razorpaySignature,
+            addr
         } = req.body;
        
         // Creating our own digest
@@ -55,7 +57,7 @@ router.post("/success", async (req, res) => {
 
         // THE PAYMENT IS LEGIT & VERIFIED
         // YOU CAN SAVE THE DETAILS IN YOUR DATABASE IF YOU WANT
-
+       dynamo.addOrders(req.body);
         res.json({ 
             msg: "success",
             orderId: razorpayOrderId,

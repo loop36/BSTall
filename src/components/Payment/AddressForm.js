@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import Card from "../Layout/Card";
-import Modal from "../Layout/Modal";
+import ReactLoading from "react-loading";
 import Input from "../UI/Input";
 import { AddressFields } from "./AddressFields";
 import axios from "axios";
 const AddressForm = (props) => {
+  const [isLoaing, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({});
   let isFormValid = false;
   useEffect(() => {
@@ -15,6 +15,7 @@ const AddressForm = (props) => {
   @loop36
 */
   const checkFormValid = () => {
+    console.log("formDAta  ");
     let data = Object.values(formData); //creating array of object from nested formdata object
     if (data.length === AddressFields.length) isFormValid = true;
     console.log("data.length " + data.length); //checking all elements are updated
@@ -37,23 +38,27 @@ const AddressForm = (props) => {
     });
   }
   async function displayRazorpay() {
+    setIsLoading(true);
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
 
     if (!res) {
+      setIsLoading(false);
       alert("Razorpay SDK failed to load. Are you online?");
       return;
     }
 
     // creating a new order
     const result = await axios.post(
-      "http://localhost:3001/payment/orders",
+      "http://192.168.18.7:3001/payment/orders",
       formData
     );
 
     if (!result) {
+      setIsLoading(false);
       alert("Server error. Are you online?");
+
       return;
     }
 
@@ -68,6 +73,13 @@ const AddressForm = (props) => {
       description: "Book Test Order",
       image: "https://bookstallbucket.s3.amazonaws.com/Image+8.png",
       order_id: order_id,
+      modal: {
+        escape: false,
+        ondismiss: function () {
+          setIsLoading(false);
+          props.close();
+        },
+      },
       handler: async function (response) {
         console.log(typeof order_id + " " + order_id);
         const data = {
@@ -75,14 +87,19 @@ const AddressForm = (props) => {
           razorpayPaymentId: response.razorpay_payment_id,
           razorpayOrderId: response.razorpay_order_id,
           razorpaySignature: response.razorpay_signature,
+          addr: formData,
         };
         console.log(data);
         const result = await axios.post(
-          "http://localhost:3001/payment/success",
+          "http://192.168.18.7:3001/payment/success",
           data
         );
 
-        if (result.data.msg === "success") props.close();
+        if (result.data.msg === "success") {
+          setIsLoading(false);
+          props.close();
+          alert("Order Placed successfully , Order number " + order_id);
+        }
       },
       prefill: {
         name: "Example Name",
@@ -105,22 +122,41 @@ const AddressForm = (props) => {
     console.log(checkFormValid());
     if (checkFormValid()) {
       // let data
+      setIsLoading(true);
       displayRazorpay();
-    }
-    else {
-      alert("Address details are invalid or incomplete ")
+    } else {
+      alert("Address details are invalid or incomplete ");
     }
   };
   return (
     <div
       id="ShippingAddress"
-      className="flex flex-col gap-1 md:w-96 lg:w-96 xl:w-96 sm:w-3/5 items-start justify-center"
+      className="relative flex flex-col gap-1 md:w-96 lg:w-96 xl:w-96 sm:w-3/5 items-start justify-center"
     >
+      {isLoaing ? (
+        <div className="absolute bg-gray-100 bg-opacity-70 h-full transparent md:w-96 lg:w-96 xl:w-96 w-96 rounded-lg flex items-center justify-center">
+          <ReactLoading
+            type="bars"
+            color="rgba(239, 68, 68,1)"
+            height={"15%"}
+            width={"15%"}
+          />
+        </div>
+      ) : (
+        ""
+      )}
       <form action="submit" method="POST" onSubmit={submitForm}>
         <div className="flex justify-between mb-6 w-96">
-        
-        <h1 className="font-bold self-center items-center b- text-base m-auto "> Address Details </h1>
-        <h3 onClick={props.close} className="items-end mr-3 text-red-600 hover:underline transition-all cursor-pointer font-bold">close</h3>
+          <h1 className="font-bold self-center items-center b- text-base m-auto ">
+            {" "}
+            Address Details{" "}
+          </h1>
+          <h3
+            onClick={props.close}
+            className="items-end mr-3 text-red-600 hover:underline transition-all cursor-pointer font-bold"
+          >
+            close
+          </h3>
         </div>
 
         {AddressFields.map((addr) => {
