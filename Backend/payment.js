@@ -45,7 +45,7 @@ router.post("/success", async (req, res) => {
         // Creating our own digest
         // The format should be like this:
         // digest = hmac_sha256(orderCreationId + "|" + razorpayPaymentId, secret);
-        const shasum = crypto.createHmac("sha256", "zSFGK6w0GMVxIkUe88axuYfR");
+        const shasum = crypto.createHmac("sha256", process.env.RAZORPAY_SECRET);
 
         shasum.update(`${orderCreationId}|${razorpayPaymentId}`);
 
