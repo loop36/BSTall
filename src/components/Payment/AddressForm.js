@@ -2,18 +2,19 @@ import { useState, useEffect } from "react";
 import ReactLoading from "react-loading";
 import Input from "../UI/Input";
 import { AddressFields } from "./AddressFields";
-import axios from "axios";
+import useRazorpayUtil from "../utils/useRazorpayUtil";
+import { useNavigate } from "react-router-dom";
+
 const AddressForm = (props) => {
   const [isLoaing, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
+  const {displayRazorpay}=useRazorpayUtil();
   let isFormValid = false;
   useEffect(() => {
     console.log(formData);
   }, [formData]);
 
-  /* Code to Check form validity based on the each input validity
-  @loop36
-*/
   const checkFormValid = () => {
     console.log("formDAta  ");
     let data = Object.values(formData); //creating array of object from nested formdata object
@@ -24,110 +25,18 @@ const AddressForm = (props) => {
     }
     return isFormValid;
   };
-  function loadScript(src) {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
-    });
-  }
-  async function displayRazorpay() {
-    setIsLoading(true);
-    const res = await loadScript(
-      "https://checkout.razorpay.com/v1/checkout.js"
-    );
 
-    if (!res) {
-      setIsLoading(false);
-      alert("Razorpay SDK failed to load. Are you online?");
-      return;
-    }
-
-    // creating a new order
-    const result = await axios.post(
-      "http://192.168.18.7:3001/payment/orders",
-      formData
-    );
-
-    if (!result) {
-      setIsLoading(false);
-      alert("Server error. Are you online?");
-
-      return;
-    }
-
-    // Getting the order details back
-    const { amount, id: order_id, currency } = result.data;
-
-    const options = {
-      key: "rzp_test_vQozQsFPHKwdCk", // Enter the Key ID generated from the Dashboard
-      amount: amount.toString(),
-      currency: currency,
-      name: "Soumya Corp.",
-      description: "Book Test Order",
-      image: "https://bookstallbucket.s3.amazonaws.com/Image+8.png",
-      order_id: order_id,
-      modal: {
-        escape: false,
-        ondismiss: function () {
-          setIsLoading(false);
-          props.close();
-        },
-      },
-      handler: async function (response) {
-        console.log(typeof order_id + " " + order_id);
-        const data = {
-          orderCreationId: order_id,
-          razorpayPaymentId: response.razorpay_payment_id,
-          razorpayOrderId: response.razorpay_order_id,
-          razorpaySignature: response.razorpay_signature,
-          addr: formData,
-        };
-        console.log(data);
-        const result = await axios.post(
-          "http://192.168.18.7:3001/payment/success",
-          data
-        );
-
-        if (result.data.msg === "success") {
-          setIsLoading(false);
-          props.close();
-          alert("Order Placed successfully , Order number " + order_id);
-        }
-      },
-      prefill: {
-        name: "Example Name",
-        email: "email@example.com",
-        contact: "9999999999",
-      },
-      notes: {
-        address: "Authors Address",
-      },
-      theme: {
-        color: "#000000",
-      },
-    };
-
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
-  }
   const submitForm = (e) => {
     e.preventDefault();
     console.log(checkFormValid());
     if (checkFormValid()) {
-      // let data
       setIsLoading(true);
-      displayRazorpay();
+      displayRazorpay(props.close,formData,setIsLoading,navigate);
     } else {
       alert("Address details are invalid or incomplete ");
     }
   };
+  
   return (
     <div
       id="ShippingAddress"
@@ -185,13 +94,7 @@ const AddressForm = (props) => {
           >
             place order
           </button>
-          {/* <button
-            className=" w-24 p-2 self-center bg-red-600 text-sm text-center rounded-lg  text-gray-100 capitalize"
-            onClick={props.close}
-          >
-            {" "}
-            Cancel
-          </button> */}
+         
         </div>
       </form>
     </div>

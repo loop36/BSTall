@@ -1,0 +1,16 @@
+#OCH::after {
+  content: "";
+  flex:3;
+  border-bottom: 2px solid  rgba(239, 68, 68, 1);
+  margin: auto;
+  margin: auto 0px auto 20px;
+ 
+}
+
+#OCH::before {
+  margin: auto 30px auto 0;
+  content: "";
+  flex:1;
+  border-bottom: 2px solid rgba(239, 68, 68, 1);
+  
+}

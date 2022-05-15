@@ -1,23 +1,15 @@
 import React from "react";
-import AuthorWorks from "./components/Author/AuthorWorks";
-import KnowYourAuthor from "./components/Author/KnowYourAuthor";
-import BookDetails from "./components/Book/BookDetails";
-import Footer from "./components/Layout/Footer";
-import Header from "./components/Layout/Header";
-import Comments from "./components/Review/Comments";
-
+import { Route, Routes } from "react-router";
+import Landing from "./Pages/Landing/Landing";
+import OC from "./Pages/Order Confirmation/OC";
 function App() {
 
   return ( 
-<React.Fragment> 
-   <Header />
-<BookDetails/>
-<KnowYourAuthor/>
-{/* <AuthorWorks/> */}
-{/* <Comments/> */}
-<Footer/>
-</React.Fragment>
-
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/OC/:oid" element={<OC />} />
+    </Routes>
+ 
   );
 }
 

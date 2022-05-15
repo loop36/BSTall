@@ -4,12 +4,12 @@ import avatar from "../../Assets/Balagopalan.jpg";
 const KnowYourAuthor = () => {
   return (
     <Element name="kya">
-      <div className="flex justify-center  self-center w-screen mb-10">
+      <div className="flex justify-center px-0 xl:px-16 xl:mx-auto xl:justify-center xl:max-w-7xl  md:pr-10 lg:px-2  self-center w-screen mb-10 ">
         <div className="flex flex-col w-10/12 justify-center self-center border-solid border-2 py-12 rounded-2xl">
           <h3 className="font-bold mb-7 self-center"> ബാലഗോപാലൻ പേരൂർ </h3>
           <div className="md:flex lg:flex mt-5 ">
-            <img src={avatar} alt="Author" className="m-auto px-3 mb-4 sm:w-4/12 md:w-3/12" />
-            <p className="w-8/12 self-center m-auto text-left text-sm leading-7">
+            <img src={avatar} alt="Author" className="m-auto px-10 sm:px-5 mb-4 md:mt-0 sm:w-4/12 md:my-auto"/>
+            <p className="w-9/12 mt-8  sm:m-auto  self-center mx-auto text-left text-xs p-0 leading-7 resize ">
               കോട്ടയം ജില്ലയിൽ പേരൂർ ചാലയ്ക്കൽ വീട്ടിൽ റ്റി. എൻ കൃഷ്ണൻ
               കുട്ടിമാരാരുടെയും ദേവകിയമ്മയുടെയും മകനായി
             ജനനം.  ഏറ്റുമാനൂർ കാവ്യവേദി
