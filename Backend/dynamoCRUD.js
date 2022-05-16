@@ -64,7 +64,8 @@ const getOrdersByEpid = (email,phone,req, res) => {
    
     },
     // Set the projection expression, which are the attributes that you want.
-    ProjectionExpression: "orderID",
+    ProjectionExpression: "orderID , #s , #time",
+    ExpressionAttributeNames : {'#s': 'status' ,"#time":'timeStamp'},
     TableName: "BookDetailsTable",
    ConsistentRead:true
   };
@@ -80,6 +81,8 @@ const getOrdersByEpid = (email,phone,req, res) => {
 
 //Add an order
 const addOrders = async (orderdetails) => {
+ const date=  Date.now().toString();
+ console.log(date)
   const EPSearch=generateEPSearchid(orderdetails.addr.Email.value,orderdetails.addr.Phone.value);
   const params = {
     TableName: "BookDetailsTable",
@@ -87,6 +90,7 @@ const addOrders = async (orderdetails) => {
       bookid: { S: orderdetails.orderCreationId },
       orderID: { S: orderdetails.orderCreationId },
       status: { S: "Created" },
+      timeStamp: { S:date },
       address: {
         M: {
           firstname: { S: orderdetails.addr.FirstName.value },
