@@ -51,7 +51,7 @@ const OrderSearch = () => {
         <div className="flex gap-3 mt-10">
           <span className="text-gray-700 "> Having Issues ? </span>
           <a
-            href="mailto:anandvb2013@gmail.com"
+            href="mailto:anandvbalagopalan@gmail.com"
             className="text-red-600 underline font-semibold font-sm"
           >
             Contact us

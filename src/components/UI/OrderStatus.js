@@ -2,7 +2,7 @@ import './OrderStatus.css';
 
 const OrderStatus = () => {
   return (
-    <div className=" flex sm:flex-col mb-5 lg:flex-row md:flex-row justify-center  items-center self-start gap-3 mt-10 ">
+    <div className=" flex w-56 sm:w-11/12 mb-5 lg:flex-row md:flex-row justify-center  items-center self-start gap-3 mt-10 ">
       <div className="flex flex-col">
         <svg height="8" width="8" className="self-center">
           <circle

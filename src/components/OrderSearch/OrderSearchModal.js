@@ -8,7 +8,7 @@ const OrderSearchModal = (props )=>{
     const navigate = useNavigate();
     useEffect(()=>{
         console.log(props.email)
-        axios.post('http://localhost:3001/eps',{'email':props.email,'phone':props.phone})
+        axios.post('http://192.168.18.7:3001/eps',{'email':props.email,'phone':props.phone})
         .then(res=>{
             setOrder(res.data.Items)
             console.log(res.data.Items)
@@ -36,7 +36,7 @@ return <Modal>
                 {order.timeStamp&&
                 <span className='text-xs mt-2'> <strong className='text-red-600 font-semibold'>order placed :  </strong>{new Date(parseInt(order.timeStamp.S)).toLocaleString()  }</span>}
                 </div>
-                <button className='border-2 border-green-400 m-auto flex transition-colors hover:bg-green-500 hover:text-gray-50  px-4' onClick={()=>{navigate("/oc/" + order.orderID.S);}}>View</button>
+                <button className='border-2 rounded border-green-400 m-auto flex transition-colors hover:bg-green-500 hover:text-gray-50  px-4' onClick={()=>{navigate("/oc/" + order.orderID.S);}}>View</button>
             </div>)
 
         })

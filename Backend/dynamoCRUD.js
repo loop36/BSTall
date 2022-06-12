@@ -41,7 +41,7 @@ const getAnOrder = async (orderId, res) => {
 
 //get all orders
 const getAllOrders = (req, res) => {
-  const params = {
+  const params = { 
     TableName: "BookDetailsTable",
   };
   DynamoDB.scan(params, function (err, data) {
