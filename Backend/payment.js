@@ -7,6 +7,9 @@ var bodyParser = require("body-parser");
 const router = express.Router();
 const crypto = require("crypto");
 
+router.get("/orders",(req,res)=>{
+res.status(200).send("hello");
+})
 router.post("/orders", async (req, res) => {
   try {
     const instance = new Razorpay({
@@ -26,6 +29,7 @@ router.post("/orders", async (req, res) => {
 
     res.json(order);
   } catch (error) {
+    console.log(error);
     res.status(500).send(error);
   }
 });

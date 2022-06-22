@@ -35,7 +35,7 @@ async function displayRazorpay(close, formData, setIsLoading, history) {
   }
   // creating a new order
   const result = await axios.post(
-    "http://192.168.18.7:3001/payment/orders",
+    "http://54.145.128.243:3001/payment/orders",
     formData
   );
 
@@ -73,7 +73,7 @@ async function displayRazorpay(close, formData, setIsLoading, history) {
         addr: formData,
       };
       const result = await axios.post(
-        "http://192.168.18.7:3001/payment/success",
+        "http://54.145.128.243:3001/payment/success",
         data
       );
 

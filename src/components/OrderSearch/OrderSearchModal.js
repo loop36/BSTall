@@ -8,7 +8,7 @@ const OrderSearchModal = (props )=>{
     const navigate = useNavigate();
     useEffect(()=>{
         console.log(props.email)
-        axios.post('http://192.168.18.7:3001/eps',{'email':props.email,'phone':props.phone})
+        axios.post('http://54.145.128.243:3001/eps',{'email':props.email,'phone':props.phone})
         .then(res=>{
             setOrder(res.data.Items)
             console.log(res.data.Items)
